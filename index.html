@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aman Aslam — .NET Software Developer</title>
+<meta name="description" content="Software developer, 3+ years in .NET. Layered ASP.NET Core Web APIs, SQL Server data layers, SFTP patient-data ingestion and SignalR real-time features — delivered for US healthcare clients and a Government of Karnataka programme.">
+<meta name="author" content="Aman Aslam">
+
+<!--
+  Link previews. og:image needs a hosted URL, so add it once this is live:
+    <meta property="og:image" content="https://aman-aslam.github.io/portfolio/preview.png">
+    <meta property="og:url"   content="https://aman-aslam.github.io/portfolio/">
+-->
+<meta property="og:title" content="Aman Aslam — .NET Software Developer">
+<meta property="og:description" content="3+ years building layered ASP.NET Core Web APIs and SQL Server data layers for healthcare and HR platforms.">
+<meta property="og:type" content="profile">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316181C'/%3E%3Cpath d='M8 22 L16 9 L24 22' stroke='%23C6636E' stroke-width='2.4' fill='none'/%3E%3Cpath d='M11.5 22 L20.5 22' stroke='%23C6636E' stroke-width='2.4'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=DM+Mono:wght@400;500&family=Karla:wght@400..700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   Palette: graphite ink, warm near-white paper, oxblood accent.
+   Type: Bricolage Grotesque display / Karla body / DM Mono data.
+   ============================================================ */
+:root{
+  color-scheme: light;
+
+  --paper:  #FBFAF9;
+  --band:   #F1EFEC;
+  --ink:    #16181C;
+  --ink-2:  #333941;
+  --text:   #24282E;
+  --muted:  #6B7178;
+  --rule:   #DAD6D1;
+  --rule-2: #C7C2BB;
+
+  --ox:      #8C2F39;   /* oxblood: the one accent */
+  --ox-lift: #C6636E;   /* oxblood on dark grounds */
+  --ox-wash: #F6EBEC;
+
+  --display: 'Bricolage Grotesque', 'Trebuchet MS', sans-serif;
+  --body:    'Karla', 'Segoe UI', system-ui, sans-serif;
+  --mono:    'DM Mono', ui-monospace, Consolas, monospace;
+
+  --shell: 1080px;
+  --gut: 30px;
+  --rail: 132px;        /* the date rail */
+  --pad: 92px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:78px;
+}
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{ margin:0; font-weight:700; }
+
+a{ color:var(--ox); text-decoration:none; }
+a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+:focus-visible{ outline:2px solid var(--ox); outline-offset:3px; }
+
+.shell{ width:100%; max-width:var(--shell); margin:0 auto; padding:0 var(--gut); }
+
+/* Mono is reserved for data: dates, endpoints, stacks, labels. */
+.m{ font-family:var(--mono); font-size:.75rem; letter-spacing:.02em; }
+.m--up{ text-transform:uppercase; letter-spacing:.1em; font-size:.7rem; }
+
+.skip{
+  position:absolute; left:-9999px;
+  background:var(--ink); color:#fff;
+  padding:12px 18px; z-index:100; font-weight:600;
+}
+.skip:focus{ left:12px; top:12px; }
+
+/* ============================================================
+   MASTHEAD
+   ============================================================ */
+.top{
+  position:sticky; top:0; z-index:40;
+  background:rgba(251,250,249,.93);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.top__in{ display:flex; align-items:center; gap:20px; height:64px; }
+.top__name{
+  font-family:var(--display); font-weight:700; font-size:1.02rem;
+  color:var(--ink); letter-spacing:-.015em; margin-right:auto;
+}
+.top__name:hover{ text-decoration:none; }
+.top__nav{ display:flex; gap:22px; }
+.top__nav a{ color:var(--muted); font-family:var(--mono); font-size:.75rem; }
+.top__nav a:hover{ color:var(--ink); text-decoration:none; }
+.top__pdf{
+  font-family:var(--mono); font-size:.75rem;
+  color:var(--ink); border:1px solid var(--rule-2);
+  padding:8px 13px; border-radius:3px; white-space:nowrap;
+}
+.top__pdf:hover{ background:var(--ink); color:var(--paper); border-color:var(--ink); text-decoration:none; }
+
+/* ============================================================
+   OPENING
+   ============================================================ */
+.open{ padding:78px 0 0; }
+.open__in{ display:grid; grid-template-columns:1fr 400px; gap:56px; align-items:start; }
+
+.open__avail{ color:var(--ox); margin:0 0 30px; }
+.open__who{
+  font-family:var(--body); font-weight:700;
+  font-size:1.22rem; color:var(--ink);
+  margin:0 0 4px; letter-spacing:-.01em;
+}
+.open__role{ color:var(--muted); margin:0 0 26px; font-size:1rem; }
+.open__say{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(2.05rem,4.6vw,3.15rem);
+  line-height:1.09;
+  letter-spacing:-.028em;
+  color:var(--ink);
+  margin:0 0 24px;
+  max-width:19ch;
+}
+.open__say b{ color:var(--ox); font-weight:700; }
+.open__note{ color:var(--ink-2); max-width:50ch; margin:0 0 32px; }
+
+.acts{ display:flex; flex-wrap:wrap; gap:11px; align-items:center; }
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--body); font-size:.95rem; font-weight:600;
+  padding:12px 19px; border-radius:3px;
+  border:1px solid transparent; cursor:pointer;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn:hover{ text-decoration:none; }
+.btn--fill{ background:var(--ox); color:#fff; }
+.btn--fill:hover{ background:#75262F; }
+.btn--fill:disabled{ background:#6E4A4F; cursor:default; }
+.btn--line{ background:transparent; color:var(--ink); border-color:var(--rule-2); }
+.btn--line:hover{ border-color:var(--ink); }
+
+.links{ display:flex; flex-wrap:wrap; gap:16px; margin-top:24px; }
+.links a{ color:var(--muted); font-family:var(--mono); font-size:.75rem; }
+.links a:hover{ color:var(--ox); text-decoration:none; }
+
+/* ---------- FIGURE 1: the request path ---------- */
+.fig{ border-top:2px solid var(--ink); padding-top:14px; }
+.fig__cap{
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:8px 14px; flex-wrap:wrap; margin-bottom:16px;
+}
+.fig__no{ font-family:var(--mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--ink); }
+.fig__of{ font-family:var(--mono); font-size:.7rem; color:var(--muted); }
+
+.fig__call{
+  font-family:var(--mono); font-size:.79rem;
+  color:var(--ox); background:var(--ox-wash);
+  border:1px solid #EBD8DA; border-radius:3px;
+  padding:9px 12px; margin-bottom:11px;
+  overflow-wrap:anywhere;
+}
+
+.stack{ display:flex; flex-direction:column; gap:6px; }
+.step{
+  display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center;
+  gap:2px 12px;
+  padding:12px 13px;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  background:var(--paper);
+  transition:background .3s ease, border-color .3s ease;
+}
+.step__n{ font-family:var(--mono); font-size:.79rem; color:var(--ink); font-weight:500; }
+.step__d{ font-family:var(--mono); font-size:.68rem; color:var(--muted); }
+
+/* Indentation encodes depth: each layer sits one notch further in. */
+.step:nth-of-type(2){ margin-left:14px; }
+.step:nth-of-type(3){ margin-left:28px; }
+.step:nth-of-type(4){ margin-left:42px; }
+
+.fig__back{
+  font-family:var(--mono); font-size:.74rem; color:var(--muted);
+  margin:12px 0 0; padding-top:11px; border-top:1px dashed var(--rule-2);
+}
+.fig__back b{ color:var(--ink); font-weight:500; }
+
+/* One orchestrated run on load, replayed on hover — not an idle loop. */
+@media (prefers-reduced-motion: no-preference){
+  .fig.run .step{ animation:reach .5s ease-in-out 1 both; }
+  .fig.run .step:nth-of-type(1){ animation-delay:.15s; }
+  .fig.run .step:nth-of-type(2){ animation-delay:.42s; }
+  .fig.run .step:nth-of-type(3){ animation-delay:.69s; }
+  .fig.run .step:nth-of-type(4){ animation-delay:.96s; }
+}
+@keyframes reach{
+  0%  { background:var(--paper);    border-color:var(--rule); }
+  45% { background:var(--ox-wash);  border-color:#E2C3C6; }
+  100%{ background:var(--paper);    border-color:var(--rule); }
+}
+
+/* ============================================================
+   FIGURES BAND
+   ============================================================ */
+.band{ margin-top:74px; border-top:1px solid var(--rule); background:var(--band); }
+.band__in{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; padding:32px 0; }
+.fact__n{
+  display:block;
+  font-family:var(--display); font-weight:700;
+  font-size:2rem; line-height:1; letter-spacing:-.03em;
+  color:var(--ox); margin-bottom:7px;
+}
+.fact__l{ color:var(--ink-2); font-size:.9rem; }
+
+/* ============================================================
+   SECTIONS — date rail on the left, content on the right
+   ============================================================ */
+.sec{ padding:var(--pad) 0; }
+.sec--band{ background:var(--band); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.sec__h{
+  font-family:var(--display); font-size:clamp(1.5rem,2.8vw,1.95rem);
+  letter-spacing:-.022em; color:var(--ink); margin-bottom:10px;
+}
+.sec__d{ color:var(--muted); max-width:58ch; margin:0 0 6px; }
+
+.entries{ margin-top:34px; }
+.entry{
+  display:grid; grid-template-columns:var(--rail) 1fr;
+  gap:30px;
+  padding:28px 0;
+  border-top:1px solid var(--rule);
+}
+.entry:last-child{ border-bottom:1px solid var(--rule); }
+.entry__when{ font-family:var(--mono); font-size:.74rem; color:var(--muted); padding-top:5px; }
+.entry__when b{ display:block; color:var(--ink); font-weight:500; }
+.entry h3{
+  font-family:var(--display); font-size:1.16rem;
+  letter-spacing:-.015em; color:var(--ink); margin-bottom:3px;
+}
+.entry__at{ color:var(--ox); font-size:.94rem; font-weight:600; margin:0 0 14px; }
+.entry__at span{ color:var(--muted); font-weight:400; }
+.entry ul{ margin:0; padding-left:17px; }
+.entry li{ margin-bottom:8px; }
+.entry li:last-child{ margin-bottom:0; }
+.entry li::marker{ color:var(--rule-2); }
+.entry__stack{
+  font-family:var(--mono); font-size:.71rem; color:var(--muted);
+  margin:14px 0 0; padding-top:12px; border-top:1px dashed var(--rule-2);
+}
+
+/* ============================================================
+   SKILLS — a definition list, not a wall of pills
+   ============================================================ */
+.defs{ margin-top:34px; }
+.def{
+  display:grid; grid-template-columns:var(--rail) 1fr;
+  gap:30px;
+  padding:17px 0;
+  border-top:1px solid var(--rule);
+}
+.def:last-child{ border-bottom:1px solid var(--rule); }
+.def__k{
+  font-family:var(--mono); font-size:.7rem; text-transform:uppercase;
+  letter-spacing:.09em; color:var(--muted); padding-top:4px;
+}
+.def__v{ margin:0; color:var(--ink-2); }
+.def__v b{ color:var(--ink); font-weight:600; }
+
+/* ============================================================
+   CLOSING
+   ============================================================ */
+.close{ background:var(--ink); color:#fff; padding:var(--pad) 0; }
+.close__in{ display:grid; grid-template-columns:.9fr 1.1fr; gap:54px; align-items:start; }
+.close__k{ color:var(--ox-lift); display:block; margin-bottom:14px; }
+.close h2{
+  font-family:var(--display); font-size:clamp(1.6rem,3.1vw,2.2rem);
+  letter-spacing:-.024em; color:#fff; margin-bottom:14px;
+}
+.close__d{ color:#A9B0B6; margin:0 0 28px; max-width:36ch; }
+
+.rows{ list-style:none; padding:0; margin:0; }
+.rows li{ padding:12px 0; border-top:1px solid rgba(255,255,255,.13); }
+.rows li:last-child{ border-bottom:1px solid rgba(255,255,255,.13); }
+.rows__k{
+  font-family:var(--mono); font-size:.66rem; text-transform:uppercase;
+  letter-spacing:.11em; color:#8A9198; display:block; margin-bottom:3px;
+}
+.rows__v{ color:#fff; font-size:.95rem; }
+.rows a{ color:#fff; font-size:.95rem; overflow-wrap:anywhere; }
+.rows a:hover{ color:var(--ox-lift); text-decoration:none; }
+
+.form{ border:1px solid rgba(255,255,255,.14); border-radius:3px; padding:28px; }
+.f{ margin-bottom:17px; }
+.f label{
+  display:block; margin-bottom:6px;
+  font-family:var(--mono); font-size:.68rem;
+  text-transform:uppercase; letter-spacing:.1em; color:#8A9198;
+}
+.f input, .f textarea{
+  width:100%;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:3px;
+  color:#fff;
+  font-family:var(--body); font-size:.95rem;
+  padding:11px 12px;
+  transition:border-color .15s ease, background .15s ease;
+}
+.f input:focus, .f textarea:focus{
+  border-color:var(--ox-lift); background:rgba(255,255,255,.08); outline:none;
+}
+.f input:focus-visible, .f textarea:focus-visible{ outline:2px solid var(--ox-lift); outline-offset:2px; }
+.f textarea{ resize:vertical; min-height:112px; }
+
+.form .btn--fill{ width:100%; justify-content:center; }
+.say{ margin:13px 0 0; font-size:.88rem; color:#A9B0B6; min-height:1.3em; }
+.say[data-s="ok"]{ color:#7BC8A4; }
+.say[data-s="err"]{ color:#E4A0A6; }
+
+/* Spam trap: off-screen, unfocusable, hidden from screen readers */
+.trap{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+/* ============================================================
+   FOOT
+   ============================================================ */
+.foot{ background:var(--ink); border-top:1px solid rgba(255,255,255,.13); padding:24px 0; }
+.foot__in{ display:flex; justify-content:space-between; align-items:center; gap:10px 16px; flex-wrap:wrap; }
+.foot p, .foot a{ margin:0; color:#8A9198; font-family:var(--mono); font-size:.71rem; }
+.foot a:hover{ color:#fff; text-decoration:none; }
+
+/* ============================================================
+   RESPONSIVE — one major collapse at 900, one tighten at 560
+   ============================================================ */
+@media (max-width:900px){
+  :root{ --pad:60px; --rail:100px; }
+  .top__nav{ display:none; }
+  .open{ padding:52px 0 0; }
+  .open__in{ grid-template-columns:1fr; gap:46px; }
+  .open__say{ max-width:none; }
+  .band{ margin-top:54px; }
+  .close__in{ grid-template-columns:1fr; gap:36px; }
+  .close__d{ max-width:none; }
+}
+
+@media (max-width:640px){
+  .band__in{ grid-template-columns:1fr; gap:22px; padding:26px 0; }
+  .entry, .def{ grid-template-columns:1fr; gap:9px; }
+  .entry__when{ padding-top:0; }
+  .entry__when b{ display:inline; }
+  .def__k{ padding-top:0; }
+  .step:nth-of-type(2){ margin-left:8px; }
+  .step:nth-of-type(3){ margin-left:16px; }
+  .step:nth-of-type(4){ margin-left:24px; }
+}
+
+@media (max-width:560px){
+  :root{ --gut:18px; }
+  .form{ padding:21px 19px; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print{
+  .top, .form, .acts, .links, .fig, .skip{ display:none !important; }
+  body{ background:#fff; font-size:11pt; }
+  .close, .foot{ background:#fff !important; }
+  .close h2, .close__d, .close__k, .rows__k, .rows a, .rows__v, .foot p, .foot a{ color:#000 !important; }
+  .open__in, .close__in{ display:block; }
+  .band{ background:#fff; margin-top:20px; }
+  .fact__n{ color:#000; font-size:1.3rem; }
+  .sec{ padding:14px 0; }
+  .sec--band{ background:#fff; }
+  .entry, .def{ page-break-inside:avoid; padding:12px 0; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ================= MASTHEAD ================= -->
+<header class="top">
+  <div class="shell top__in">
+    <a class="top__name" href="#start">Aman Aslam</a>
+    <nav class="top__nav" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="top__pdf" href="Aman-Aslam-Resume.pdf" download>Resume ↓</a>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ================= OPENING ================= -->
+<section class="open" id="start">
+  <div class="shell open__in">
+
+    <div>
+      <!-- Delete this line if you'd rather not signal job-seeking publicly -->
+      <p class="m m--up open__avail">Open to .NET roles · India</p>
+
+      <p class="open__who">Aman Aslam</p>
+      <p class="open__role">Software Developer · .NET, SQL Server, Azure</p>
+
+      <h1 class="open__say">
+        I build the <b>layered backends</b> enterprise apps run on.
+      </h1>
+
+      <p class="open__note">
+        Three years on healthcare and HR platforms — client work for two US companies and
+        a Government of Karnataka programme. REST APIs behind a repository and service
+        layer, SQL Server tuned with stored procedures and indexing, scheduled SFTP
+        ingestion, and real-time updates over SignalR.
+      </p>
+
+      <div class="acts">
+        <a class="btn btn--fill" href="Aman-Aslam-Resume.pdf" download>
+          Download resume <span aria-hidden="true">↓</span>
+        </a>
+        <a class="btn btn--line" href="#contact">Get in touch</a>
+      </div>
+
+      <div class="links">
+        <a href="mailto:amanaslam513@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/amanaslam" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/aman-aslam" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+
+    <!-- FIGURE 1: the layering, drawn as indentation rather than decoration -->
+    <figure class="fig" id="fig1">
+      <figcaption class="fig__cap">
+        <span class="fig__no">Fig. 1 — Request path</span>
+        <span class="fig__of">how I structure an API</span>
+      </figcaption>
+
+      <p class="fig__call">GET /api/adherence/{patientId}</p>
+
+      <div class="stack" role="img"
+           aria-label="A request descends four layers: Controller at the HTTP boundary, Service holding business rules, Repository handling data access, and SQL Server running stored procedures. Dependencies are injected at every layer.">
+        <div class="step"><span class="step__n">Controller</span><span class="step__d">HTTP boundary</span></div>
+        <div class="step"><span class="step__n">Service</span><span class="step__d">business rules</span></div>
+        <div class="step"><span class="step__n">Repository</span><span class="step__d">data access</span></div>
+        <div class="step"><span class="step__n">SQL Server</span><span class="step__d">stored procedures</span></div>
+      </div>
+
+      <p class="fig__back"><b>← 200 OK</b> · every layer injected, none of them aware of the one above</p>
+    </figure>
+
+  </div>
+
+  <!-- ================= FIGURES ================= -->
+  <div class="band">
+    <div class="shell band__in">
+      <div class="fact">
+        <span class="fact__n">50,000+</span>
+        <span class="fact__l">Patient records managed on a live healthcare platform</span>
+      </div>
+      <div class="fact">
+        <span class="fact__n">40%</span>
+        <span class="fact__l">Faster API responses after query, index and LINQ work</span>
+      </div>
+      <div class="fact">
+        <span class="fact__n">HIPAA</span>
+        <span class="fact__l">Compliant APIs handling protected health information</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="sec" id="experience">
+  <div class="shell">
+    <h2 class="sec__h">Where I've worked</h2>
+    <p class="sec__d">Two companies, two enterprise platforms — healthcare adherence, then HR operations.</p>
+
+    <div class="entries">
+
+      <article class="entry">
+        <p class="entry__when"><b>Oct 2025</b>— Present</p>
+        <div>
+          <h3>Software Developer</h3>
+          <p class="entry__at">Bhavitha Tech <span>· Bengaluru, Karnataka</span></p>
+          <ul>
+            <li>Engineered backend REST APIs for HRMS Disciplinary Action and Promotion modules using ASP.NET Core Web API, following Repository Pattern and Service Layer architecture with dependency injection.</li>
+            <li>Built server-rendered frontend in ASP.NET MVC, with a dedicated MVC controller layer calling the backend APIs over HTTP.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry">
+        <p class="entry__when"><b>Mar 2023</b>— Sep 2025</p>
+        <div>
+          <h3>Associate Software Developer</h3>
+          <p class="entry__at">Heaptrace Technology Pvt. Ltd. <span>· Pune, Maharashtra</span></p>
+          <ul>
+            <li>Designed and developed scalable REST APIs using ASP.NET Core Web API for a healthcare adherence platform managing 50,000+ patient records.</li>
+            <li>Improved API response time by 40% by optimizing SQL joins, indexing strategies, and LINQ expressions.</li>
+            <li>Developed dynamic frontend features in Vue.js for order management and inventory dashboards, improving UI responsiveness.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="sec sec--band" id="work">
+  <div class="shell">
+    <h2 class="sec__h">Systems I've built</h2>
+    <p class="sec__d">
+      Client work delivered through my employers — two US clients and a Government of
+      Karnataka programme. The code belongs to the clients, so none of it is public.
+      Happy to walk through the design of any of it.
+    </p>
+
+    <div class="entries">
+
+      <article class="entry">
+        <p class="entry__when"><b>Oct 2025</b>— Present</p>
+        <div>
+          <h3>Human Resource Management System (HRMS)</h3>
+          <p class="entry__at">Government of Karnataka <span>· delivered at Bhavitha Tech</span></p>
+          <ul>
+            <li>Backend APIs for the Disciplinary Action and Promotion modules, built on ASP.NET Core Web API with SQL Server stored procedures.</li>
+            <li>Razor Views frontend served by dedicated MVC controllers, supporting role-based workflow, pagination and sorting.</li>
+          </ul>
+          <p class="entry__stack">ASP.NET Core Web API · ASP.NET MVC · Razor Views · SQL Server · Stored Procedures</p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <p class="entry__when"><b>Apr 2023</b>— Sep 2025</p>
+        <div>
+          <h3>Enterprise Healthcare Platform</h3>
+          <p class="entry__at">US healthcare client <span>· delivered at Heaptrace Technology</span></p>
+          <ul>
+            <li>Built HIPAA-compliant REST APIs with ASP.NET Core Web API for medication adherence tracking, patient workflow management and healthcare operational processing across 50,000+ patient records.</li>
+            <li>Ingested patient information from an SFTP feed into SQL Server, and calculated medication adherence from the loaded data.</li>
+            <li>Implemented PDC calculation workflows using SQL Server stored procedures and Azure Timer Trigger Functions, improving API and database performance by 40%.</li>
+            <li>Developed Vue.js dashboards backed by SignalR for real-time updates.</li>
+          </ul>
+          <p class="entry__stack">ASP.NET Core Web API · Vue.js · SignalR · Azure Functions · SFTP ingestion · SQL Server · HIPAA</p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <p class="entry__when"><b>Jul 2024</b>— Mar 2025</p>
+        <div>
+          <h3>Order Management System</h3>
+          <p class="entry__at">US client <span>· delivered at Heaptrace Technology</span></p>
+          <ul>
+            <li>Developed RESTful APIs with ASP.NET Core Web API covering the order lifecycle: creation, update, assignment and delivery status.</li>
+            <li>Replaced a cron-based polling system with SignalR for real-time order updates, significantly improving kitchen response time and user experience.</li>
+          </ul>
+          <p class="entry__stack">ASP.NET Core Web API · SignalR · SQL Server · REST</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLKIT ================= -->
+<section class="sec" id="toolkit">
+  <div class="shell">
+    <h2 class="sec__h">What I work with</h2>
+    <p class="sec__d">
+      Backend-leaning full stack. Most of my time goes to API design, the data layer,
+      and keeping both fast under real load.
+    </p>
+
+    <div class="defs">
+      <div class="def">
+        <span class="def__k">Languages</span>
+        <p class="def__v"><b>C#</b>, JavaScript, SQL, HTML, CSS</p>
+      </div>
+      <div class="def">
+        <span class="def__k">Frameworks</span>
+        <p class="def__v"><b>ASP.NET Core Web API</b>, ASP.NET MVC (Razor Views), Entity Framework, Vue.js, SignalR</p>
+      </div>
+      <div class="def">
+        <span class="def__k">Architecture</span>
+        <p class="def__v"><b>Repository Pattern</b>, Service Layer, Dependency Injection, RESTful APIs, separated frontend/backend, monolithic and microservices</p>
+      </div>
+      <div class="def">
+        <span class="def__k">Database</span>
+        <p class="def__v"><b>SQL Server</b> — stored procedures, query optimization, indexing</p>
+      </div>
+      <div class="def">
+        <span class="def__k">Cloud</span>
+        <p class="def__v"><b>Microsoft Azure</b> — App Services, Functions, Storage, Service Bus, Containers</p>
+      </div>
+      <div class="def">
+        <span class="def__k">Tools</span>
+        <p class="def__v">Visual Studio, VS Code, Postman, Swagger, SSMS</p>
+      </div>
+      <div class="def">
+        <span class="def__k">Also</span>
+        <p class="def__v">HIPAA compliance, PHI security, LINQ, SFTP data ingestion, real-time communication</p>
+      </div>
+      <div class="def">
+        <span class="def__k">Education</span>
+        <p class="def__v"><b>B.Tech, Computer Science</b> — Shri Shankaracharya Technical Campus, Bhilai · 2019–2023</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSING ================= -->
+<section class="close" id="contact">
+  <div class="shell close__in">
+
+    <div>
+      <span class="m m--up close__k">Contact</span>
+      <h2>Let's talk</h2>
+      <p class="close__d">Hiring for a .NET or backend role? Send a note here, or reach me directly.</p>
+
+      <ul class="rows">
+        <li>
+          <span class="rows__k">Email</span>
+          <a href="mailto:amanaslam513@gmail.com">amanaslam513@gmail.com</a>
+        </li>
+        <li>
+          <span class="rows__k">Phone</span>
+          <a href="tel:+917024975602">+91 70249 75602</a>
+        </li>
+        <li>
+          <span class="rows__k">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/amanaslam" target="_blank" rel="noopener">linkedin.com/in/amanaslam ↗</a>
+        </li>
+        <li>
+          <span class="rows__k">GitHub</span>
+          <a href="https://github.com/aman-aslam" target="_blank" rel="noopener">github.com/aman-aslam ↗</a>
+        </li>
+        <li>
+          <!-- Add your city here — recruiters filter hard on location -->
+          <span class="rows__k">Location</span>
+          <span class="rows__v">India</span>
+        </li>
+      </ul>
+    </div>
+
+    <!--
+      EMAIL — FormSubmit.co. Free, unlimited, no account, no API key, no card.
+
+      The page sends the message itself with a background request. The visitor
+      does NOT get their mail app opened, and nothing depends on what they have
+      installed. Messages land in amanaslam513@gmail.com and you reply normally.
+
+      ONE-TIME ACTIVATION: the very first message sent from the live site triggers
+      a confirmation email to you. Click the link in it once. After that every
+      message is delivered automatically, forever.
+
+      Prefer a service with an API key instead? Web3Forms is also free — get a key
+      at web3forms.com, then change only this action URL to
+      https://api.web3forms.com/submit and add your key as an "access_key" field
+      in the JSON payload at the bottom of this file. Nothing else changes.
+    -->
+    <form class="form" id="mailForm"
+          action="https://formsubmit.co/ajax/amanaslam513@gmail.com"
+          method="POST" novalidate>
+      <div class="f">
+        <label for="q-name">Your name</label>
+        <input id="q-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="f">
+        <label for="q-mail">Your email</label>
+        <input id="q-mail" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="f">
+        <label for="q-org">Role or company <span aria-hidden="true">(optional)</span></label>
+        <input id="q-org" name="company" type="text">
+      </div>
+      <div class="f">
+        <label for="q-msg">Message</label>
+        <textarea id="q-msg" name="message" required></textarea>
+      </div>
+
+      <div class="trap" aria-hidden="true">
+        <label for="q-honey">Leave this empty</label>
+        <input id="q-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button class="btn btn--fill" type="submit">Send message</button>
+      <p class="say" id="mailSay" aria-live="polite"></p>
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot__in">
+    <p>© <span id="yr">2026</span> Aman Aslam</p>
+    <a href="#start">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var yr = document.getElementById('yr');
+  if (yr) { yr.textContent = new Date().getFullYear(); }
+
+  /* ---------- Fig. 1: run the trace once, replay on demand ---------- */
+  var fig = document.getElementById('fig1');
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (fig && !calm) {
+    var playing = false;
+    function play() {
+      if (playing) { return; }
+      playing = true;
+      fig.classList.remove('run');
+      void fig.offsetWidth;          // force reflow so the animation restarts
+      fig.classList.add('run');
+      setTimeout(function () { playing = false; }, 1600);
+    }
+    setTimeout(play, 450);
+    fig.addEventListener('mouseenter', play);
+    fig.addEventListener('click', play);
+  }
+
+  /* ---------- Contact form ---------- */
+  var form = document.getElementById('mailForm');
+  var out  = document.getElementById('mailSay');
+  if (!form || !out) { return; }
+
+  var EMAIL = 'amanaslam513@gmail.com';
+
+  function say(msg, state) {
+    out.textContent = msg;
+    if (state) { out.setAttribute('data-s', state); }
+    else { out.removeAttribute('data-s'); }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Read through form.elements — form.name would return the form's own
+    // name attribute rather than the input, which is a quiet trap.
+    var f = form.elements;
+    var name    = f['name'].value.trim();
+    var email   = f['email'].value.trim();
+    var company = f['company'].value.trim();
+    var message = f['message'].value.trim();
+
+    if (f['_honey'].value) { return; }   // a bot filled the hidden field
+
+    if (!name || !email || !message) {
+      say('Add your name, email and a message, then send again.', 'err');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      say('That email address looks incomplete — check it and send again.', 'err');
+      return;
+    }
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    say('Sending…');
+
+    // Abort instead of leaving the button disabled on a hung request.
+    var ctrl  = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) { ctrl.abort(); } }, 15000);
+
+    // The page sends the message itself, in the background. The visitor's mail
+    // app is never involved. JSON is FormSubmit's documented AJAX format.
+    fetch(form.getAttribute('action'), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        company: company || '—',
+        message: message,
+        _subject: 'Portfolio enquiry from ' + name,
+        _template: 'table',
+        _captcha: 'false'
+      }),
+      signal: ctrl ? ctrl.signal : undefined
+    })
+    .then(function (res) { return res.json().catch(function () { return {}; }); })
+    .then(function (data) {
+      if (data && String(data.success) === 'true') {
+        form.reset();
+        say('Sent. It has gone straight to Aman’s inbox.', 'ok');
+      } else {
+        throw new Error('rejected');
+      }
+    })
+    .catch(function () {
+      say('That did not go through. Email ' + EMAIL + ' directly and it will reach me.', 'err');
+    })
+    .then(function () {
+      clearTimeout(timer);
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
