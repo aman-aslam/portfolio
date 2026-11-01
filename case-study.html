@@ -76,20 +76,44 @@
 (function () {
   'use strict';
   const projects = {
-    portfolio: {
-      index: '01 / PERSONAL BRAND & DIGITAL EXPERIENCE', title: 'A personal platform for a builder.', accent: 'Aman Aslam Portfolio',
-      lede: 'A focused home for my work, engineering capabilities and independent practice — designed to help a potential client understand what I build and start a useful conversation.',
-      type: 'Personal brand / portfolio', role: 'Concept, design & development', stack: 'HTML · CSS · JavaScript', status: 'Live on GitHub Pages',
-      challenge: 'A developer portfolio needs to do more than list technologies. It must quickly communicate the problems I can help solve, demonstrate how I think about products, and make it straightforward for a business owner to get in touch.',
-      solution: 'The portfolio uses an editorial visual language, clear service descriptions, a selected-work showcase and a project inquiry form. Rather than presenting a long skills inventory, it connects technology choices to business outcomes and explains the difference between my core experience and the stacks I can adapt to.',
-      approach: ['A responsive single-page experience with semantic HTML and reusable visual patterns.', 'A clear hierarchy across hero, selected work, services, technology approach, process, about and contact.', 'Lightweight motion effects that enhance navigation and content discovery without making the page dependent on animation.', 'Direct project links and a structured inquiry workflow for prospective clients.'],
-      details: ['The published portfolio is a static HTML/CSS/JavaScript site hosted on GitHub Pages.', 'The contact workflow uses FormSubmit’s AJAX endpoint and reports success only when the service confirms delivery. First-time FormSubmit activation may require confirming the recipient email.', 'Project preview illustrations on this portfolio are explicitly identified as illustrative, not screenshots of the live applications.'],
-      outcome: 'A clear, accessible starting point for international clients to understand my services, see selected software work and send a project brief. No conversion or traffic metrics are being claimed.',
-      tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive design', 'Motion design', 'GitHub Pages'],
-      links: [{label:'OPEN LIVE PORTFOLIO',url:'https://aman-aslam.github.io/portfolio/'},{label:'VIEW SOURCE REPOSITORY',url:'https://github.com/aman-aslam/portfolio'}]
+    hrms: {
+      index: '01 / ENTERPRISE SOFTWARE · HRMS', title: 'Modern workflows for people operations.', accent: 'Human Resource Management System',
+      lede: 'An enterprise HRMS project covering Disciplinary Action and Promotion modules, with backend REST APIs and a server-rendered ASP.NET MVC experience.',
+      type: 'Human Resource Management System', role: 'ASP.NET Core API & ASP.NET MVC development', stack: 'C# · ASP.NET Core Web API · ASP.NET MVC · Razor Views · SQL Server', status: 'Professional project experience · October 2025–Present',
+      challenge: 'HRMS disciplinary and promotion workflows need dependable backend operations and an interface that supports role-based work, pagination and sorting without duplicating business logic between screens and services.',
+      solution: 'Developed backend REST APIs for Disciplinary Action and Promotion modules using ASP.NET Core Web API. Built a server-rendered frontend with ASP.NET MVC Razor Views, where dedicated MVC Controllers call backend APIs over HTTP. SQL Server stored procedures support pagination, sorting and workflow operations.',
+      approach: ['Develop REST API endpoints for HRMS Disciplinary Action and Promotion modules.', 'Apply Repository Pattern and Service Layer architecture with Dependency Injection.', 'Build server-rendered screens using ASP.NET MVC and Razor Views.', 'Keep the MVC Controller layer separate and call backend APIs over HTTP.', 'Integrate SQL Server stored procedures for pagination, sorting and workflow operations.'],
+      details: ['Backend: C# and ASP.NET Core Web API.', 'Frontend: ASP.NET MVC with Razor Views and a dedicated MVC Controller layer.', 'Architecture: Repository Pattern, Service Layer, Dependency Injection and separated frontend/backend responsibilities.', 'Database: SQL Server stored procedures for pagination, sorting and workflow operations.', 'The project scope described here is limited to the Disciplinary Action and Promotion modules listed in the resume.'],
+      outcome: 'Delivered backend API and MVC workflow development for key HRMS modules. This case study describes the responsibilities and technologies listed in the resume and does not claim unprovided adoption or performance metrics.',
+      tags: ['C#', 'ASP.NET Core Web API', 'ASP.NET MVC', 'Razor Views', 'SQL Server', 'Stored Procedures', 'Repository Pattern', 'Dependency Injection'],
+      links: []
+    },
+    healthcare: {
+      index: '02 / HEALTHCARE TECHNOLOGY · ENTERPRISE PLATFORM', title: 'Reliable workflows for healthcare operations.', accent: 'Enterprise Healthcare Platform',
+      lede: 'A healthcare adherence platform supporting medication adherence tracking, patient workflow management and healthcare operational processing across 50,000+ patient records.',
+      type: 'Enterprise healthcare application', role: 'REST API, Vue.js dashboard & real-time integration development', stack: 'C# · ASP.NET Core Web API · Vue.js · SignalR · SQL Server · Microsoft Azure', status: 'Professional project experience · March 2023–September 2025',
+      challenge: 'The platform needed scalable healthcare APIs and responsive operational interfaces to support medication adherence, patient workflows and a large patient-record workload.',
+      solution: 'Built HIPAA-compliant REST APIs using ASP.NET Core Web API and developed Vue.js dashboards with SignalR real-time updates. Implemented PDC calculation workflows using SQL Server stored procedures and Azure Timer Trigger Functions. The resume reports a 40% improvement in API response time through SQL joins, indexing strategies and LINQ optimization.',
+      approach: ['Develop REST APIs for medication adherence tracking, patient workflow management and healthcare operational processing.', 'Support application workflows managing 50,000+ patient records.', 'Build Vue.js dashboards with SignalR for real-time updates.', 'Implement PDC calculation workflows using SQL Server stored procedures and Azure Timer Trigger Functions.', 'Optimize SQL joins, indexing strategies and LINQ expressions; the resume records a 40% API response-time improvement.'],
+      details: ['Backend: ASP.NET Core Web API and C# REST API development.', 'Frontend: Vue.js dashboards with SignalR real-time communication.', 'Database: SQL Server stored procedures, SQL joins, indexing and LINQ query optimization.', 'Cloud: Microsoft Azure Timer Trigger Functions.', 'The resume describes the platform as HIPAA-compliant and reports that it managed more than 50,000 patient records.'],
+      outcome: 'The resume records experience supporting 50,000+ patient records and a 40% API response-time improvement following database and query optimization. No additional clinical or business outcomes are assumed.',
+      tags: ['ASP.NET Core Web API', 'Vue.js', 'SignalR', 'SQL Server', 'Stored Procedures', 'Azure Functions', 'LINQ', 'HIPAA'],
+      links: []
+    },
+    ordermanagement: {
+      index: '03 / REAL-TIME APPLICATIONS · ORDER OPERATIONS', title: 'Real-time updates across the order lifecycle.', accent: 'Order Management System',
+      lede: 'An order management application supporting order creation, updates, assignment and delivery-status operations, with SignalR replacing a Cron-based polling workflow.',
+      type: 'Order management system', role: 'ASP.NET Core REST API & SignalR development', stack: 'C# · ASP.NET Core Web API · SignalR · JavaScript', status: 'Professional project experience · July 2024–March 2025',
+      challenge: 'A polling-based order update flow can delay status visibility for kitchen teams. The application needed to support the full order lifecycle while improving the timeliness of order updates.',
+      solution: 'Developed RESTful APIs for order creation, updates, assignment and delivery status. Replaced the Cron-based polling system with SignalR real-time order updates to improve kitchen response time and user experience.',
+      approach: ['Develop REST endpoints for order creation and updates.', 'Support order assignment and delivery-status changes.', 'Replace Cron-based polling with SignalR real-time communication.', 'Deliver timely order updates to improve kitchen response and the user experience.'],
+      details: ['Backend: C# and ASP.NET Core Web API.', 'Real-time communication: SignalR.', 'The project dates and scope reflect the Order Management System entry in the resume.', 'No traffic, order-volume or quantified latency metrics are claimed for this project.'],
+      outcome: 'Replaced periodic polling with real-time order updates, improving kitchen response time and the overall user experience as described in the resume.',
+      tags: ['C#', 'ASP.NET Core Web API', 'REST APIs', 'SignalR', 'Real-Time Updates'],
+      links: []
     },
     medidrift: {
-      index: '02 / HEALTHCARE TECHNOLOGY · CATALOGUE INTELLIGENCE', title: 'Bring medication catalogue data into focus.', accent: 'MediDrift',
+      index: '04 / HEALTHCARE TECHNOLOGY · CATALOGUE INTELLIGENCE', title: 'Bring medication catalogue data into focus.', accent: 'MediDrift',
       lede: 'A medication catalogue workspace that helps teams bring supplier spreadsheets into a consistent structure, review source-to-target mappings and inspect RxNorm identifier findings while retaining source values.',
       type: 'Medication catalogue workspace', role: 'React frontend & ASP.NET Core API', stack: 'React · TypeScript · .NET · PostgreSQL', status: 'Live application',
       challenge: 'Medication catalogue files can arrive with different headers, layouts and identifier formats. Teams need to normalize fields without losing traceability to the original source, and they need a reviewable way to inspect identifier terminology status.',
@@ -101,7 +125,7 @@
       links: [{label:'OPEN LIVE MEDIDRIFT APP',url:'https://medidrift.vercel.app/'},{label:'FRONTEND REPOSITORY',url:'https://github.com/MediDrift/MediDrift.Frontend'},{label:'API REPOSITORY',url:'https://github.com/MediDrift/MediDrift.Api'}]
     },
     roadnest: {
-      index: '03 / RENTAL TECHNOLOGY · SINGLE-SHOP OPERATIONS', title: 'One workspace for the rental business.', accent: 'RoadNest Rentals',
+      index: '05 / RENTAL TECHNOLOGY · SINGLE-SHOP OPERATIONS', title: 'One workspace for the rental business.', accent: 'RoadNest Rentals',
       lede: 'A live full-stack car and bike rental system for a single local rental shop, with customer bookings, a shop operations workspace, AI-assisted rental planning and photo-based vehicle listing assistance for staff.',
       type: 'Car & bike rental management', role: 'Product design & full-stack development', stack: 'Next.js · NestJS · PostgreSQL · Prisma', status: 'Live product / evolving application',
       challenge: 'A rental shop needs more than a vehicle listing page. Staff must maintain a fleet, understand availability, handle online and counter bookings, record payments and deposits, inspect vehicles at pickup and return, and track maintenance and operating costs.',
