@@ -114,12 +114,12 @@
       status.textContent = "Sending your inquiry…";
       delete status.dataset.state;
       const controller = new AbortController();
-      const timer = window.setTimeout(() => controller.abort(), 18000);
+      const timer = window.setTimeout(() => controller.abort(), 30000);
       try {
         const response = await fetch(form.action, {
           method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(Object.fromEntries(data.entries())),
+          headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", Accept: "application/json" },
+          body: new URLSearchParams(data),
           signal: controller.signal
         });
         const result = await response.json().catch(() => ({}));
