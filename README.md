@@ -1,57 +1,66 @@
-# Aman Aslam — Developer Portfolio
+# Aman Aslam — Premium Developer Portfolio
 
-Personal portfolio website presenting selected software projects, full-stack development services, and ways to get in touch about freelance or professional opportunities.
+A responsive static portfolio for Aman Aslam, Full-Stack .NET Developer.
 
-**Live portfolio:** https://aman-aslam.github.io/portfolio/
+## Included
 
-## Featured work
+- `index.html` — redesigned portfolio homepage
+- `case-study.html` — project detail page (query examples below)
+- `assets/css/styles.css` — responsive styling and motion
+- `assets/js/main.js` — 00–100 opening animation, navigation, reveal effects, scroll progress and contact form
+- Technology section — six categories with brand icons from the Simple Icons CDN; descriptive text remains visible if an icon cannot load
+- `assets/js/case-study.js` — project case study content
+- `assets/images/aman-aslam-portrait.webp` — optimized copy of the supplied professional portrait
+- `favicon.svg` — site icon
 
-The portfolio showcases projects in this order:
+## Preview locally
 
-1. **RoadNest Rentals** — car and bike rental management platform.
-   - Live application: https://roadnest-rentals.netlify.app/
-   - Source: https://github.com/aman-aslam/roadnest-rental
-2. **MediDrift** — medication catalogue and healthcare data workflow platform.
-   - Live application: https://medidrift.vercel.app/
-3. **Healthcare software** — healthcare-focused application development and integrations.
-4. **HRMS** — enterprise human-resource management workflows.
-5. **Order Management** — business operations and order workflow software.
+No framework or build step is required.
 
-Some client or employer projects may not have public source repositories. This portfolio only links to demos and source repositories intended to be shared.
+1. Extract the ZIP.
+2. Open a terminal in the extracted folder.
+3. Run:
 
-## Services
+   ```bash
+   python -m http.server 5500
+   ```
 
-- Custom web application development
-- Backend and API development
-- Frontend application development
-- Database design and integration
-- AI-enabled application features
-- Existing application improvements, bug fixing, and technical support
+4. Open http://localhost:5500
 
-The portfolio focuses on solving business problems and selecting the right technology for each project.
+Opening `index.html` directly also works for most page content. Use the local server to test the contact form's browser behavior and relative paths consistently.
 
-## Technology
+## Case studies
 
-- HTML5
-- CSS3
-- JavaScript
-- Responsive layouts and interaction effects
+- `case-study.html?project=roadnest`
+- `case-study.html?project=medidrift`
+- `case-study.html?project=healthcare`
+- `case-study.html?project=ordermanagement`
+- `case-study.html?project=freightlook`
+- `case-study.html?project=healthmonitor`
+- `case-study.html?project=hrms`
 
-## Run locally
+The seven featured projects are RoadNest, MediDrift, Enterprise Healthcare Platform, Order Management System, FreightLook, WebsiteHealthMonitor and HRMS Enterprise.
 
-The site is a static web experience. From the repository root, start a local static server:
+## Resume
 
-    python -m http.server 5500
+The Resume link points to the PDF already hosted in the original GitHub repository:
 
-Then open http://localhost:5500 in your browser. No backend service is required just to preview the static portfolio pages.
+https://raw.githubusercontent.com/aman-aslam/portfolio/main/Aman-Aslam-Resume.pdf
 
-## Contact
+The resume is not duplicated in this ZIP. Internet access is required to open that link.
 
-- GitHub: https://github.com/aman-aslam
-- Portfolio: https://aman-aslam.github.io/portfolio/
+## Contact form
 
-For project enquiries, use the contact details and contact form presented on the live portfolio.
+The form uses the existing FormSubmit AJAX endpoint for `amanaslam513@gmail.com`. Actual form submission requires internet access and may require FormSubmit's email activation/verification. The ZIP does not test or send a real inquiry.
 
----
+## Technology icons
 
-Built to make real-world software work easy to explore.
+Brand icons are loaded from `https://cdn.simpleicons.org/`. An internet connection is required for the SVG logos; skill names and labels remain readable when the CDN is unavailable.
+
+## Notes
+
+- This is a static HTML/CSS/JavaScript website; no Node.js install is necessary.
+- Project previews are custom illustrative UI mockups, not screenshots from production systems.
+- Project links are limited to URLs already present in the portfolio/repository context.
+- `Upwork` personal-profile URL was not included because an exact URL was not provided.
+- External Google Fonts are optional; local fallback fonts are defined.
