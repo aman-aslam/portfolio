@@ -64,3 +64,7 @@ Brand icons are loaded from `https://cdn.simpleicons.org/`. An internet connecti
 - Project links are limited to URLs already present in the portfolio/repository context.
 - `Upwork` personal-profile URL was not included because an exact URL was not provided.
 - External Google Fonts are optional; local fallback fonts are defined.
+
+## Technology icon assets
+
+The C#, SQL Server, Oracle and Azure SVG marks in `assets/icons/` are stored locally so those badges do not rely on a third-party image CDN. Generic concepts use native emoji pictograms and remain readable without external icon requests.
