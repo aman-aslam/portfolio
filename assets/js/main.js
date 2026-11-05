@@ -89,7 +89,7 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Project inquiry: success is only shown after the form service confirms receipt.
+  // Project inquiry: EmailJS confirms a successful send before showing success.
   const form = document.getElementById("inquiry-form");
   const status = document.getElementById("form-status");
   if (form && status) {
@@ -113,29 +113,27 @@
       }
       status.textContent = "Sending your inquiry…";
       delete status.dataset.state;
-      const controller = new AbortController();
-      const timer = window.setTimeout(() => controller.abort(), 30000);
       try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", Accept: "application/json" },
-          body: new URLSearchParams(data),
-          signal: controller.signal
-        });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || String(result.success) !== "true") {
-          throw new Error("The form service did not confirm delivery.");
-        }
+        if (!window.emailjs) throw new Error("Email service is unavailable. Please try again.");
+        await window.emailjs.send(
+          "service_ze8or1q",
+          "template_un5g8rv",
+          {
+            name: String(data.get("name") || "").trim(),
+            email: String(data.get("email") || "").trim(),
+            project_type: String(data.get("project_type") || "").trim(),
+            message: String(data.get("message") || "").trim()
+          },
+          { publicKey: "QZvskNKEiEyPAQT6g" }
+        );
         form.reset();
         status.textContent = "Thank you — your inquiry was sent successfully.";
         status.dataset.state = "success";
       } catch (error) {
-        status.textContent = error.name === "AbortError"
-          ? "The request timed out. Please email me directly at amanaslam513@gmail.com."
-          : "The inquiry could not be confirmed. Please email me directly at amanaslam513@gmail.com.";
+        console.error("Portfolio inquiry failed:", error);
+        status.textContent = "We couldn't send your inquiry right now. Please email work.amanaslam@gmail.com.";
         status.dataset.state = "error";
       } finally {
-        window.clearTimeout(timer);
         sending = false;
         if (submit) {
           submit.disabled = false;
