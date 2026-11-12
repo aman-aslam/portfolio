@@ -10,7 +10,7 @@
       approach:["Build a customer experience for browsing cars and bikes, reviewing pricing and requesting bookings.","Create a shop workspace for fleet, walk-in and online bookings, payments, expenses and maintenance.","Add an AI Rental Planner that matches customer needs to the published fleet.","Add AI-assisted vehicle-photo recognition for staff, with human review before saving suggested details."],
       outcome:"A single-shop rental platform designed around the operational needs of a real rental business. AI-suggested details remain reviewable; the application does not treat image suggestions as verified vehicle facts.",
       tags:["Next.js","NestJS","PostgreSQL","Prisma","AI integration"],
-      links:[["OPEN LIVE APPLICATION","https://roadnest-rentals.netlify.app/"],["AI RENTAL PLANNER","https://roadnest-rentals.netlify.app/ai-planner"],["SOURCE REPOSITORY","https://github.com/aman-aslam/roadnest-rental"]]
+      links:[["OPEN LIVE APPLICATION","https://roadnest-rentals.vercel.app/"],["AI RENTAL PLANNER","https://roadnest-rentals.vercel.app/ai-planner"],["SOURCE REPOSITORY","https://github.com/aman-aslam/roadnest-rental"]]
     },
     medidrift: {
       number:"02 / HEALTHCARE TECHNOLOGY",title:"Bring medication catalogue data into focus.",accent:"MediDrift",
